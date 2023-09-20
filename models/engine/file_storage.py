@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """This module defines a class to manage file storage for the HBNB clone"""
 import json
-from models import City, Place, Review, State, Amenity, User, BaseModel
+from models import city, place, review, state, amenity, user, base_model
+
 
 
 class FileStorage:
@@ -9,13 +10,12 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
     CLASSES = {
-        'City': City,
-        'Place': Place,
-        'Review': Review,
-        'State': State,
-        'Amenity': Amenity,
-        'User': User,
-        'BaseModel': BaseModel
+        'City': city.City,
+        'Place': place.Place,
+        'Review': review.Review,
+        'State': state.State,
+        'Amenity': amenity.Amenity,
+        'User': user.User
     }
 
     def all(self, cls=None):
