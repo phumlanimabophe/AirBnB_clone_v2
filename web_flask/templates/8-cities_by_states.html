@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <!-- Display the main heading for the States section -->
+        <H1>States</H1>
+        <UL>
+            <!-- Loop through states and sort them by name -->
+            {% for state in states|sort(attribute='name') %}
+                <LI>
+                    <!-- Display the state ID and name in bold -->
+                    {{ state.id }}: <B>{{ state.name }}</B>
+                    <UL>
+                        <!-- Loop through cities in the state and sort them by name -->
+                        {% for city in state.cities|sort(attribute='name') %}
+                            <LI>
+                                <!-- Display the city ID and name in bold -->
+                                {{ city.id }}: <B>{{ city.name }}</B>
+                            </LI>
+                        {% endfor %}
+                    </UL>
+                </LI>
+            {% endfor %}
+        </UL>
+    </BODY>
+</HTML>

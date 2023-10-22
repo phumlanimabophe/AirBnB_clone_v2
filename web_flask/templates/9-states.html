@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <!-- Check if state_id is not provided -->
+        {% if not state_id %}
+            <!-- Display a list of states -->
+            <H1>States</H1>
+            <UL>
+                <!-- Loop through states and sort them by name -->
+                {% for state in states.values()|sort(attribute='name') %}
+                    <!-- Display state ID and name in bold -->
+                    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+                {% endfor %}
+            </UL>
+        {% elif state_id in states %}
+        <!-- Check if state_id is a valid state -->
+            {% set state = states[state_id] %}
+            <!-- Display the state's name -->
+            <H1>State: {{ state.name }}</H1>
+            <H3>Cities</H3>
+            <UL>
+                <!-- Loop through cities in the state and sort them by name -->
+                {% for city in state.cities|sort(attribute='name') %}
+                    <!-- Display city ID and name in bold -->
+                    <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+                {% endfor %}
+            </UL>
+        {% else %}
+        <!-- Handle the case when state_id is not found -->
+            <H1>Not found!</H1>
+        {% endif -->
+    </BODY>
+</HTML>
